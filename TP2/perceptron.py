@@ -97,9 +97,10 @@ class Perceptron():
         #GRAFICOS
         #peso en base a las iteraciones
         print("IMPRIMIENDO GRAFICOS")
-        plt.plot(listacontadorpeso, lista_w0, label="w0")
-        plt.plot(listacontadorpeso, lista_w1, label="w1")
-        plt.plot(listacontadorpeso, lista_w2, label="w2")
+        fig, ax = plt.subplots()
+        ax.plot(listacontadorpeso, lista_w0, label="w0")
+        ax.plot(listacontadorpeso, lista_w1, label="w1")
+        ax.plot(listacontadorpeso, lista_w2, label="w2")
         plt.title("Peso en base de las iteracion")
         plt.legend()
         plt.savefig('grafigoPesoEnBaseIteracion')

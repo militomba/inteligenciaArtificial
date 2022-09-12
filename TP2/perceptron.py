@@ -50,7 +50,7 @@ class Perceptron():
         else:
             print("Esa no es una opcion")
         
-        print(f"\n---DATOS--- \nw0 = {w0} \nw1 = {w1} \nw2 = {w2} \nerror = {error}")
+        #print(f"\n---DATOS--- \nw0 = {w0} \nw1 = {w1} \nw2 = {w2} \nerror = {error}")
 
         contador = 0
         contador_peso = 0
@@ -91,8 +91,8 @@ class Perceptron():
                     errorFila4.append(error)
                 listacontadorpeso.append(contador_peso)
 
-        print(f"En la iteracion {contador} el error es menor al 10%")
-            #print(f"\nw0 = {w0} \nw1 = {w1} \nw2 = {w2} \nError = {error}")
+        print(f"\nEn la iteracion {contador} el error es menor al 10% donde: \nw0 = {w0} \nw1 = {w1} \nw2 = {w2} \nError = {error} ")
+        #print(f"\nw0 = {w0} \nw1 = {w1} \nw2 = {w2} \nError = {error}")
 
         #GRAFICOS
         #peso en base a las iteraciones
@@ -101,6 +101,8 @@ class Perceptron():
         ax.plot(listacontadorpeso, lista_w0, label="w0")
         ax.plot(listacontadorpeso, lista_w1, label="w1")
         ax.plot(listacontadorpeso, lista_w2, label="w2")
+        ax.set_xlabel("ITERACIONES", fontdict = {'fontsize':14, 'fontweight':'bold', 'color':'tab:green'})
+        ax.set_ylabel("PESOS", fontdict = {'fontsize':14, 'fontweight':'bold', 'color':'tab:blue'})
         plt.title("Peso en base de las iteracion")
         plt.legend()
         plt.savefig('grafigoPesoEnBaseIteracion')
@@ -111,6 +113,8 @@ class Perceptron():
         er.plot(listacontador, errorFila2, label="Error fila 2")
         er.plot(listacontador, errorFila3, label="Error fila 3")
         er.plot(listacontador, errorFila4, label="Error fila 4")
+        er.set_xlabel("ITERACIONES", fontdict = {'fontsize':14, 'fontweight':'bold', 'color':'tab:green'})
+        er.set_ylabel("ERRORES", fontdict = {'fontsize':14, 'fontweight':'bold', 'color':'tab:blue'})
         plt.title("Error en base de las iteracion")
         plt.legend()
         plt.savefig('grafigoErrorEnBaseIteracion')

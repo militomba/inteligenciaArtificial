@@ -6,6 +6,7 @@ from busqueda_anchura import *
 def main():
     cont=int(input("Cuantas veces quiere mezclar la matriz: "))
     matriz1 = crear_matriz()
+    print(f"MATRIZ ORIGINAL:\n {matriz1} ")
     matrizOriginal = crear_matriz()
     #print (matriz1)
     matriz2= encontrar_cero(matriz1)

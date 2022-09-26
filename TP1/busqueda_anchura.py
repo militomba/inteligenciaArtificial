@@ -138,12 +138,13 @@ def busquedaNiveles(matrizAnchura, matrizOriginal):
     niveles = []
     contador = 0
     matriz = deepcopy(matrizAnchura)
+    #matriz = []
     while True:
         a = posiciones(matriz)
         contador += 1
         for i in a:
             niveles.append(i)
-            #matriz = deepcopy(matriz)
+            matriz = deepcopy(matriz)
         if a == matrizOriginal:
             print(f"Encontraste la solucion en {contador} movimientos!!\n", a)
             break

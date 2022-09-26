@@ -11,6 +11,7 @@ def crear_matriz():
             matriz_original[i].append(posicionCero) 
     matriz_original[-1][-1] = 0
     #print (matriz_original)
+    
     return matriz_original
 
 

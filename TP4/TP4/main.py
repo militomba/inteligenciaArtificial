@@ -15,6 +15,7 @@ def main():
     listaPesosCF = []
     listaSalidaReal = []
     contador = []
+    
     listaError1 = []
     listaError2 = []
     listaError3 = []
@@ -36,11 +37,13 @@ def main():
     print(f"PESOS CAPA FINAL: {listaPesosCF}")
 
     iteraciones = 0
-    while iteraciones != 10:
+    
+    while iteraciones != 10000:
         iteraciones += 1
         contador.append(iteraciones)
         print(f"----------------------ITERACION N°{iteraciones}----------------------")
         for fila in tabla_xor2:
+            
             cortada = fila [0:3]
             sd = fila[3]
             for capaoculta in division:
@@ -58,7 +61,7 @@ def main():
             elif fila == tabla_xor2[3]:
                 listaError4.append(error)
 
-            nuevosPesosCO= []
+            nuevosPesosCO = []
             lr=0.5
             for peso in range(len(division)):
                 Soc_genaral =listaSalidaReal[peso]*(1-listaSalidaReal[peso])*deltaFinal   
@@ -70,6 +73,7 @@ def main():
             division.clear()
             division = [nuevosPesosCO[i:i+3] for i in range(0, len(nuevosPesosCO), 3)]
             
+
     fig, ax = plt.subplots()
     ax.plot(contador, listaError1, label="Error fila 1")
     ax.plot(contador, listaError2, label="Error fila 2")
@@ -81,6 +85,8 @@ def main():
     plt.legend()
     plt.savefig('grafigoErroresEnBaseIteracion')
     plt.show()
+
+  
                  
         
 

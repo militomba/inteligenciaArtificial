@@ -35,6 +35,6 @@ class CapaFinal():
             w2 = listaPesosCortada[i] + delta_w2
             nuevosPesos.append(w2)
         print("\nNeurona 4")
-        print(f"PESOS: {listaPesosCF}\nSALIDA REAL CAPA FINAL: {salidaReal}")
+        print(f"SALIDA REAL CAPA FINAL: {salidaReal}")
 
         return deltaFinal, nuevosPesos, error

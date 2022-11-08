@@ -4,8 +4,8 @@ class MultiLayerPerceptron():
     def perceptron(self, iteracion):
         tabla_xor = [[0,0,0],[0,1,1],[1,0,1],[1,1,0]]
 
-        lr = 0.1
-        #lr =0.5
+        #lr = 0.1
+        lr =0.5
         #NEURONA1
         w0=0.9
         w1=0.7
@@ -67,18 +67,18 @@ class MultiLayerPerceptron():
                 x1= (w0*entrada0) + (w1*entrada1) + (w2*entrada2) 
                 y1 = 1 / (1 + (math.exp(-x1)))
 
-
-                #print(f"\n---NEURONA 1---\nSalida Real={y1} \nw0={nw0}\nw1={nw1}\nw2={nw2}")
+                
+                print(f"\n---NEURONA 1---\nPesos: {w0},{w1},{w2}\nSalida Real={y1}\nx={x1}")
                 #NEURONA 2
                 x2= (w3*entrada0) + (w4*entrada1) + (w4*entrada2) 
                 y2 = 1 / (1 + (math.exp(-x2)))
-
-                #print(f"\n---NEURONA 2---\nSalida Real={y2} \nw3={nw3}\nw4={nw4}\nw5={nw5}")
+                
+                print(f"\n---NEURONA 2---\nPesos: {w3},{w4},{w5}\nSalida Real={y2}\nx={x2}")
                 #NEURONA 3
                 x3= (w6*entrada0 + w7*entrada1 + w8*entrada2) 
                 y3 = 1 / (1 + (math.exp(-x3)))
 
-               # print(f"\n---NEURONA 3---\nSalida Real={y3} \nw6={nw6}\nw7={nw7}\nw8={nw8}")
+                print(f"\n---NEURONA 3---\nSalida Real={y3} ")
                 #NEURONA 4
                 x4= (w9*entrada0 + w10*y1 + w11*y2 + w12*y3)
                 y4 = 1 / (1 + (math.exp(-x4)))
@@ -104,7 +104,7 @@ class MultiLayerPerceptron():
                 nw12 = w12 + deltaw12    
                 w12 = nw12 
                 lista_w12.append(nw12)
-                print(f"\n---NEURONA 4---\nSalida Real={y4}")
+                print(f"\n---NEURONA 4---\nSalida Real={y4}\nx4={x4}")
 
                 #agregar errores a la lista
                 if fila == tabla_xor[0]:

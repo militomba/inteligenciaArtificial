@@ -4,6 +4,7 @@ from capaOculta import *
 from capaFinal import *
 import matplotlib.pyplot as plt
 from leerImagenes import *
+from leerPesos import *
 def main():
     iteraciones = 0
     contador = []
@@ -12,20 +13,11 @@ def main():
     entradas = len(tabla_imagen[0])-1 #7681 entradas
     print(len(tabla_imagen))
     entradasCO = cantCO* entradas
+   
+    pesosCapaOculta, pesosCapaFinal = leerPesos()
 
-    listaPesosCO = []
-    listaPesosCF = []
-    
+    division = [pesosCapaOculta[i:i+entradas] for i in range(0, len(pesosCapaOculta), entradas)] #[[7681], [7681],...]
 
-    for i in range(entradasCO):
-        rCO = random.uniform(-1, 1)
-        listaPesosCO.append(rCO)
-    
-    division = [listaPesosCO[i:i+entradas] for i in range(0, len(listaPesosCO), entradas)] #[[7681], [7681],...]
-
-    for i in range(cantCO+1):
-        rCF = random.uniform(-1, 1)
-        listaPesosCF.append(rCF) 
     
     listaSalidaReal = []
     lista_errores = [ [] for i in range(len(tabla_imagen))]
@@ -43,7 +35,7 @@ def main():
                 salidaRealCO = CapaOculta().neuronaCapaOculta(cortada, capaoculta) 
                 listaSalidaReal.append(salidaRealCO)
 
-            deltaFinal, nuevosValores, error = CapaFinal().neuronaCapaFinal(listaSalidaReal, listaPesosCF, salidaDeseada)                           
+            deltaFinal, nuevosValores, error = CapaFinal().neuronaCapaFinal(listaSalidaReal, pesosCapaFinal, salidaDeseada)                           
             lista_errores[contadorError].append(error) 
             contadorError += 1
 
@@ -64,15 +56,7 @@ def main():
             listaSalidaReal.clear()
             division.clear()
             division = [nuevosPesosCO[i:i+entradas] for i in range(0, len(nuevosPesosCO), entradas)]
-
-    with open('pesos.txt', 'w') as f:
-        for peso in nuevosPesosCO:
-            f.write(str(peso) + "\n")
-
-    with open('pesos2.txt', 'w') as f:
-        for peso in listaPesosCF:
-            f.write(str(peso) + "\n")
-
+            
     for i in range(len(lista_errores)):
         plt.plot(contador, lista_errores[i], label = f"Error r{i}")
     plt.title("ERRORES")

@@ -5,6 +5,6 @@ def leerPesos():
         for i in pesos:
             pesos1.append(float(i))
     with open('pesos2.txt', 'r') as pesos:
-        for j in pesos:
-            pesos2.append(float(j))
+        for i in pesos:
+            pesos2.append(float(i))
     return (pesos1), (pesos2)

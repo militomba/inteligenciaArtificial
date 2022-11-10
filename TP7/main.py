@@ -22,7 +22,7 @@ def main():
     listaSalidaReal = []
     lista_errores = [ [] for i in range(len(tabla_imagen))]
 
-    while iteraciones != 100:
+    while iteraciones != 70:
         iteraciones += 1
         contadorError = 0
         contador.append(iteraciones)
@@ -38,11 +38,8 @@ def main():
             deltaFinal, nuevosValores, error = CapaFinal().neuronaCapaFinal(listaSalidaReal, pesosCapaFinal, salidaDeseada)                           
             lista_errores[contadorError].append(error) 
             contadorError += 1
-
-         
-           
-            listaPesosCF.clear()
-            listaPesosCF = nuevosValores 
+            pesosCapaFinal.clear()
+            pesosCapaFinal = nuevosValores 
 
 
             nuevosPesosCO = []
